@@ -1,17 +1,17 @@
 import css from "./VoteStats.module.css";
 import type { Votes } from "../../types/votes";
 
-interface VotesProps {
+interface VoteStatsProps {
   votes: Votes;
   totalVotes: number;
-  positiveRates: number;
+  positiveRate: number;
 }
 
 export default function VoteStats({
   votes,
   totalVotes,
-  positiveRates,
-}: VotesProps) {
+  positiveRate,
+}: VoteStatsProps) {
   return (
     <div className={css.container}>
       <p className={css.stat}>
@@ -27,7 +27,7 @@ export default function VoteStats({
         Total: <strong>{totalVotes}</strong>
       </p>
       <p className={css.stat}>
-        Positive: <strong>{positiveRates}%</strong>
+        Positive: <strong>{positiveRate}%</strong>
       </p>
     </div>
   );

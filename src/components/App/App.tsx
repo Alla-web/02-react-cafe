@@ -6,7 +6,7 @@ import VoteOptions from "../VoteOptions/VoteOptions";
 import VoteStats from "../VoteStats/VoteStats";
 import Notification from "../Notification/Notification";
 
-import type { Votes } from "../../types/votes";
+import type { Votes, VoteType } from "../../types/votes";
 
 export default function App() {
   const [votes, setVotes] = useState<Votes>({
@@ -15,8 +15,8 @@ export default function App() {
     bad: 0,
   });
 
-  // const handleVote = (type: VoteType) => {
-  const handleVote = (type: keyof Votes) => {
+  // const handleVote = (type: keyof Votes) => {
+  const handleVote = (type: VoteType) => {
     setVotes((prevVotes) => ({
       ...prevVotes,
       [type]: prevVotes[type] + 1,
@@ -51,7 +51,7 @@ export default function App() {
         <VoteStats
           votes={votes}
           totalVotes={totalVotes}
-          positiveRates={positiveRates}
+          positiveRate={positiveRates}
         />
       )}
       {!canReset && <Notification />}
